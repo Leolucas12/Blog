@@ -1,12 +1,12 @@
-// Update with your config settings.
+//this file is the configuration for the database connection
 
 module.exports = {
 
     client: 'postgresql',
     connection: {
-      database: 'knowledge',
+      database: 'blog',
       user:     'postgres',
-      password: 'leandrolucas'
+      password: ''
     },
     pool: {
       min: 2,
