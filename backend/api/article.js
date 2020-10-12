@@ -77,11 +77,11 @@ module.exports = app => {
     const getByCategory = async (req, res) => {
         const categoryId = req.params.id
         const page = req.query.page || 1
-        //envia os parametros para o select em queries.js
-        //o id foi retirado da requisicao
+        //this part sends the parameters to the select in queries.js
+        //the id is removed of the request
         const categories = await app.db.raw(queries.categoryWithChildren, categoryId)
         const ids = categories.rows.map(c => c.id)
-        // recebe os ids da categoria pai e de todas as categorias filhas
+        //receiving the ids from the parent category and all child categories
 
         app.db({ a: 'articles', u: 'users' })
             .select('a.id', 'a.name', 'a.description', 'a.imageUrl', { author: 'u.name' })
