@@ -7,6 +7,7 @@ require('./config/mongodb')
 app.db = db
 app.mongoose = mongoose
 
+//consign is used to import all files
 consign()
     .include('./config/passport.js')
     .then('./config/middlewares.js')
