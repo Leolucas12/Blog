@@ -1,6 +1,8 @@
 const { authSecret } = require('../.env')
 const jwt = require('jwt-simple')
 const bcrypt = require('bcrypt-nodejs')
+//bcrypt is used to compare the password in the database with the password in the login form
+
 
 module.exports = app => {
     const signIn = async (req, res) => {
