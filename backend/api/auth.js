@@ -22,7 +22,7 @@ module.exports = app => {
 
         //using the Date function to validate the login
         const now = Math.floor(Date.now() / 1000)
-
+        
         const payload = {
             id: user.id,
             name: user.name,
@@ -31,9 +31,12 @@ module.exports = app => {
             iat: now,
             exp: now + (60 * 60)
         }
-
+        
+        //payload object uses the body of the request to create a login token
+        //login token can be used to access the account automatically, if the payload didnt expire
         res.json({
             ...payload,
+            //jwt (json web token) is used to create an authorization
             token: jwt.encode(payload, authSecret)
         })
     }
