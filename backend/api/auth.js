@@ -46,7 +46,9 @@ module.exports = app => {
 
         try {
             if (userData) {
+                //getting the token from the request.body
                 const token = jwt.decode(userData.token, authSecret)
+                //checking if the token already expired
                 if (new Date(token.exp *1000) > new Date()) {
                     return res.send(true)
                 }
