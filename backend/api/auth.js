@@ -15,7 +15,8 @@ module.exports = app => {
             .first()
         
         if (!user) return res.status(400).send('Usuário não encontrado')
-
+        
+        //isMatch is a bcrypt exclusive function used to compare the password in the form with the hash
         const isMatch = bcrypt.compareSync(req.body.password, user.password)
         if (!isMatch) return res.status(401).send('Email ou senha inválidos')
 
