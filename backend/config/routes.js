@@ -1,18 +1,18 @@
 const admin = require('./admin')
 
 module.exports = app => {
-    //rotas de autenticação
+    //authentication routes
     app.post('/signup', app.api.user.save)
     app.post('/signin', app.api.auth.signIn)
     app.post('/validateToken', app.api.auth.validateToken)
 
-    //rota para  salvar e recuperar usuarios
+    //route to save and get users
     app.route('/users')
         .all(app.config.passport.authenticate())
         .post(admin(app.api.user.save))
         .get(admin(app.api.user.get))
 
-    //rota para editar usuarios
+    //route to edit users
     app.route('/users/:id')
         .all(app.config.passport.authenticate())
         .put(admin(app.api.user.save))
@@ -25,7 +25,7 @@ module.exports = app => {
         .post(admin(app.api.category.save))
 
     app.route('/categories/tree')
-        //.all(app.config.passport.authenticate())
+        .all(app.config.passport.authenticate())
         .get(app.api.category.getTree)
 
     app.route('/categories/:id')
