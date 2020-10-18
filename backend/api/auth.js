@@ -54,7 +54,9 @@ module.exports = app => {
                     return res.send(true)
                 }
             }
-        } catch(e) {}
+        } catch(e) {
+            //there was an error with the token
+        }
 
         res.send(false)
     }
