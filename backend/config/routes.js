@@ -1,4 +1,5 @@
 const admin = require('./admin')
+//only an administrator can access some routes of the api
 
 module.exports = app => {
     //authentication routes
