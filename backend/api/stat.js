@@ -8,7 +8,7 @@ module.exports = app => {
     })  
 
     const get = (req, res) => {
-        Stat.findOne({}, {}, { sort: { 'createdAt' : -1 } })
+        Stat.findOne({}, {}, { sort: { 'createdAt' : -1 } }) //sort -1 will get the latest update
             .then(stat => {
                 const defaultStat = {
                     users: 0,
