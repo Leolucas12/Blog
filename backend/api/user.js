@@ -9,9 +9,9 @@ module.exports = app => {
     }
 
     const save = async (req, res) => {
-        //usuario = corpo da requisicao
+        //user = everything from the body of the request
         const user = { ...req.body}
-        //se o id estiver presente na req e ja estiver cadastrado
+        //if there is an id in the request, set it in user.id
         if (req.params.id) user.id = req.params.id
 
         if (!req.originalUrl.startsWith('/users')) user.admin = false
