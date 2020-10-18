@@ -37,7 +37,7 @@ module.exports = app => {
         //login token can be used to access the account automatically, if the payload didnt expire
         res.json({
             ...payload,
-            //jwt (json web token) is used to create an authorization
+            //jwt (json web token) and authSecret (hash created in .env file) are used to create an authorization
             token: jwt.encode(payload, authSecret)
         })
     }
