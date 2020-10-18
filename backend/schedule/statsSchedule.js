@@ -25,7 +25,8 @@ module.exports = app => {
         const changeUsers = !lastStat || stat.users !== lastStat.users
         const changeCategories = !lastStat || stat.categories !== lastStat.categories
         const changeArticles = !lastStat || stat.articles !== lastStat.articles
-
+        
+        //inserting them in MongoDB
         if (changeUsers || changeCategories || changeArticles) {
             stat.save().then(() => console.log('[Stats] Estatísticas atualizadas'))
         }
