@@ -1,4 +1,5 @@
 module.exports = app => {
+    //creating the data that will be inserted in MongoDB
     const Stat = app.mongoose.model('Stat', {
         users: Number,
         categories: Number,
