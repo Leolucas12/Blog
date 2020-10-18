@@ -28,6 +28,7 @@ module.exports = app => {
             name: user.name,
             email: user.email,
             admin: user.admin,
+            //iat = Issued at
             iat: now,
             exp: now + (60 * 60)
         }
